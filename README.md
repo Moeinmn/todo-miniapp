@@ -1,30 +1,22 @@
-Project Name
+#Todo Miniapp
 
 This repository contains the frontend and backend of the application, with a Docker Compose configuration to run the entire stack locally using Docker.
 
-Prerequisites
+#Prerequisites
 
 Before you begin, ensure you have the following installed:
 
 - Docker (including Docker Compose)
 - Git
 
-Project Structure
-
-.
-├── backend/
-│   └── data/
-│       └── db.sqlite
-├── frontend/
-├── docker-compose.yml
-└── README.md
+#Project Structure
 
 - frontend/: Contains the frontend application.
 - backend/: Contains the backend application.
 - docker-compose.yml: Docker Compose configuration to manage frontend, backend, and database containers.
 - db.sqlite: SQLite database file stored under the backend/data/ directory.
 
-Running the Application
+#Running the Application
 
 Follow these steps to set up and run the application locally using Docker.
 
@@ -63,7 +55,7 @@ docker-compose down
 
 This will stop and remove all running containers. Your SQLite database will be retained in the backend/data/db.sqlite file.
 
-Notes
+#Notes
 
 - SQLite Database: The SQLite database is automatically created and stored at backend/data/db.sqlite.
   - **Important**: Currently, there is no volume defined for the database, so if you restart the containers, all database data will be lost.
