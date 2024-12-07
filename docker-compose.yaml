@@ -1,0 +1,33 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_BASE_API: http://localhost:9000  # Reference backend service
+    container_name: frontend-app
+    restart: unless-stopped
+    expose:
+      - "3000"  # Expose port for internal communication with Nginx
+    ports:
+      - "3000:3000"  # Map container's port 3000 to host's port 80 for external access
+    depends_on:
+      - backend  # Wait for the backend service to be ready
+
+  backend:
+    build:
+      context: ./backend  # Assuming the backend is in the ./backend directory
+      dockerfile: Dockerfile
+    container_name: backend-app
+    restart: unless-stopped
+    expose:
+      - "9000"  # Expose backend port internally
+    ports:
+      - "9000:9000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

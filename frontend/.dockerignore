@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+Dockerfile
+.dockerignore
+.git
+.gitignore
+*.md
+.env
+# .env.production
+.env.development
+deploy-iframe.sh
