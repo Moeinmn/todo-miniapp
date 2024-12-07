@@ -67,10 +67,11 @@ export class ModelService {
   }
 
   // Delete task
-  async deleteTask(id: number): Promise<void> {
+  async deleteTask(id: number): Promise<TaskDto> {
     const taskEntity = await this.taskRepository.findOneBy({ id });
     if (taskEntity) {
-      await this.taskRepository.remove(taskEntity);
+      const deletedTaskEntity = await this.taskRepository.remove(taskEntity);
+      return this.toTask(deletedTaskEntity);
     }
   }
 }
