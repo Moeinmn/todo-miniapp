@@ -23,16 +23,16 @@ Follow these steps to set up and run the application locally using Docker.
 1. Clone the Repository
 
 Clone the repository to your local machine:
-
+```
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
-
+```
 2. Build and Start the Application
 
 Run the following command to build and start the Docker containers:
-
+```
 docker-compose up --build
-
+```
 This command will:
 
 - Build Docker images for the frontend and backend services.
@@ -50,9 +50,9 @@ Once the containers are running, you can access the following:
 4. Stopping the Application
 
 To stop the running containers, run:
-
+```
 docker-compose down
-
+```
 This will stop and remove all running containers. Your SQLite database will be retained in the backend/data/db.sqlite file.
 
 ## Notes
@@ -67,11 +67,7 @@ This will stop and remove all running containers. Your SQLite database will be r
 Troubleshooting
 
 - If you encounter issues with Docker, try rebuilding the images:
-
+```
   docker-compose up --build
-
+```
 - Ensure there are no port conflicts, especially on ports 3000 (frontend) and 9000 (backend).
-
-License
-
-Include your project's license here (e.g., MIT, Apache 2.0, etc.)
