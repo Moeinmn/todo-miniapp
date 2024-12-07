@@ -1,10 +1,8 @@
-// services/taskService.ts
-
 import axios from 'axios';
 import { CreateTaskDto, UpdateTaskDto, TaskDto } from '../types/taskTypes';
 
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_API, // Replace with your actual base URL
+  baseURL: process.env.NEXT_PUBLIC_BASE_API,
   headers: {
     'Content-Type': 'application/json',
   },

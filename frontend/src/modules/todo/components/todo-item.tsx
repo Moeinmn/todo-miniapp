@@ -8,13 +8,6 @@ import { Textarea } from '@/components/ui/textarea'
 import { Pencil, Trash, X, Check } from 'lucide-react'
 import { TaskDto } from '../types/taskTypes'
 
-// interface Todo {
-//   id: number
-//   title: string
-//   description: string
-//   completed: boolean
-// }
-
 interface TodoItemProps {
   todo: TaskDto
   onToggle: (id: number) => void

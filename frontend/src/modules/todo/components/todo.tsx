@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { TodoItem } from "./todo-item";
 import { AddTodo } from "./add-todo";
-//import { ITodo } from '../interfaces/todoInterfaces'
 import {
   getTasks,
   createTask,
@@ -58,17 +57,13 @@ export default function TodoApp() {
   };
 
   const toggleTodo = async (id: number) => {
-    // Start by showing loading and resetting the error state
     setLoading(true);
     setError(null);
   
     try {
-      // Send API request to mark the task as completed or incomplete
       await completeTask(id);
-  
-      // On success, refetch tasks to get the latest state
       const tasks = await getTasks();
-      setTodos(tasks); // Update the UI after the task is updated
+      setTodos(tasks);
     } catch (error) {
       console.error("Error toggling task completion:", error);
       setError("Failed to toggle task completion.");
@@ -82,15 +77,12 @@ export default function TodoApp() {
     const todoToUpdate = todos.find(todo => todo.id === id);
     if (!todoToUpdate) return;
 
-    //const updatedTodo = { ...todoToUpdate, title: newTitle, description: newDescription };
-
     setLoading(true);
     setError(null);
 
     try {
       await updateTask(id, { title: newTitle, description: newDescription });
 
-      // On success, refetch tasks to get the latest state
       const tasks = await getTasks();
       setTodos(tasks);
     } catch (error) {

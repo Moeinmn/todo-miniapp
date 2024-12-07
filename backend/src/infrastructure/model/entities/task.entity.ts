@@ -13,24 +13,24 @@ import {
 
 @Entity()
 export class Task {
-  @PrimaryGeneratedColumn() // Auto-incremented primary key for the 'id'
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column() // Column for the task title
+  @Column()
   title: string;
 
-  @Column() // Column for the task description
+  @Column()
   description: string;
 
   @Column({
-    default: false, // Default status is False
+    default: false,
   })
   isCompleted: boolean;
 
-  @CreateDateColumn() // Automatically sets the creation timestamp
+  @CreateDateColumn()
   createdAt: Date;
 
-  @UpdateDateColumn() // Automatically updates the timestamp on entity update
+  @UpdateDateColumn()
   updatedAt: Date;
 
   // NOTE: Normally I would use enum but apparently SQLite doesn't support it
